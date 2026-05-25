@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
 
+/* ============================================================
+   CSS Reset & Custom Properties
+   ============================================================ */
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -34,6 +37,9 @@
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* ============================================================
+   Base Styles
+   ============================================================ */
 html {
   scroll-behavior: smooth;
 }
@@ -48,6 +54,7 @@ body {
   overflow-x: hidden;
 }
 
+/* Subtle background */
 body::before {
   content: '';
   position: fixed;
@@ -62,6 +69,9 @@ body::before {
   z-index: 0;
 }
 
+/* ============================================================
+   Layout
+   ============================================================ */
 main {
   position: relative;
   z-index: 1;
@@ -86,6 +96,9 @@ main {
   justify-content: space-between;
 }
 
+/* ============================================================
+   Resume Card
+   ============================================================ */
 .resume {
   margin: 0 auto;
   max-width: 960px;
@@ -110,8 +123,8 @@ main {
 
 .resume__block {
   border-bottom: 1px solid var(--border-color);
-  padding-bottom: 40px;
-  margin-bottom: 32px;
+  padding-bottom: 56px;
+  margin-bottom: 48px;
   position: relative;
 }
 
@@ -121,6 +134,9 @@ main {
   padding-bottom: 0;
 }
 
+/* ============================================================
+   Contact Info Header Section
+   ============================================================ */
 .contact-info__top {
   display: flex;
   flex-direction: row;
@@ -156,6 +172,9 @@ main {
   margin-bottom: 20px;
 }
 
+/* ============================================================
+   Contact Info Container
+   ============================================================ */
 .contact_info_container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -172,6 +191,9 @@ main {
   flex-shrink: 0;
 }
 
+/* ============================================================
+   Avatar
+   ============================================================ */
 .contact-info__avatar {
   width: 110px;
   height: 110px;
@@ -195,6 +217,9 @@ main {
     0 12px 40px rgba(0, 0, 0, 0.5);
 }
 
+/* ============================================================
+   Contact Info Items
+   ============================================================ */
 .contact-info__item {
   display: flex;
   align-items: center;
@@ -264,6 +289,9 @@ main {
   transition: var(--transition);
 }
 
+/* ============================================================
+   Intro / About Section
+   ============================================================ */
 .intro {
   display: flex;
   align-items: flex-start;
@@ -301,6 +329,9 @@ main {
   padding: 4px 0;
 }
 
+/* ============================================================
+   Section Headers
+   ============================================================ */
 .skills__header,
 .experiences__header,
 .additional-info__education-header,
@@ -330,6 +361,9 @@ main {
   flex-shrink: 0;
 }
 
+/* ============================================================
+   Skills
+   ============================================================ */
 .skills__text {
   color: var(--secondary-text-color);
   text-align: left;
@@ -337,6 +371,9 @@ main {
   line-height: 1.8;
 }
 
+/* ============================================================
+   Experiences
+   ============================================================ */
 .experiences {
   flex: 1 1 60%;
   margin-right: 50px;
@@ -402,8 +439,8 @@ main {
 
 .experiences__company-project-name {
   color: var(--primary-text-color);
-  font-weight: 600;
-  margin-bottom: 6px;
+  font-weight: 500;
+  margin-bottom: 10px;
 }
 
 .experiences__company-project-responsibilities {
@@ -422,6 +459,9 @@ main {
   color: var(--accent-1);
 }
 
+/* ============================================================
+   Additional Info
+   ============================================================ */
 .additional-info {
   flex: 1 1 40%;
 }
@@ -472,6 +512,9 @@ main {
   flex-shrink: 0;
 }
 
+/* ============================================================
+   Skill Tags (bonus)
+   ============================================================ */
 .skill-tag {
   display: inline-flex;
   align-items: center;
@@ -492,39 +535,9 @@ main {
   transform: translateY(-2px);
 }
 
-.skills__container {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.skills__subtitle {
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--accent-1);
-  margin-bottom: 8px;
-}
-
-.skills__tags-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2px;
-}
-
-.education__self-link {
-  color: var(--accent-1);
-  text-decoration: none;
-  font-weight: 600;
-  border-bottom: 1px dotted var(--accent-1);
-}
-
-.education__uni-link {
-  color: inherit;
-  text-decoration: none;
-  border-bottom: 1px dotted var(--accent-1);
-}
-
+/* ============================================================
+   Scrollbar
+   ============================================================ */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -542,6 +555,9 @@ main {
   background: rgba(99, 102, 241, 0.7);
 }
 
+/* ============================================================
+   Responsive
+   ============================================================ */
 @media screen and (max-width: 768px) {
   .resume {
     border-radius: var(--radius-md);
@@ -557,14 +573,13 @@ main {
 }
 
 @media screen and (max-width: 576px) {
-  .main-info {
+  .main-info,
+  .contact_info_container {
     flex-direction: column;
   }
 
   .contact_info_container {
-    grid-template-columns: 1fr;
-    justify-items: start;
-    gap: 8px 0;
+    align-items: center;
   }
 
   .contact-info__block:not(:last-child) {
@@ -572,27 +587,21 @@ main {
   }
 
   .contact-info__header {
-    font-size: 1.6rem;
-    text-align: left;
+    font-size: 1.7rem;
+    text-align: center;
   }
 
   .contact-info__sub-header {
-    text-align: left;
-    margin-bottom: 10px;
-    white-space: nowrap;
-  }
-
-  .contact-info__avatar {
-    width: 80px;
-    height: 80px;
+    text-align: center;
   }
 
   .experiences {
     margin-right: 0;
   }
 
-  .intro__icon-wrapper {
-    display: none;
+  .intro {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .resume {
